@@ -1,5 +1,5 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
+import { Tabs } from "expo-router";
+import React from "react";
 import type { ImageSourcePropType } from "react-native";
 import { Image, ImageBackground, Text, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
@@ -27,7 +27,8 @@ function TabIcon({ focused, icon, title }: TabIconProps) {
     return (
       <ImageBackground
         source={images.highlight}
-        className="flex flex-row w-full flex-1 min-w-[112px] min-h-16 mt-5 justify-center items-center rounded-full overflow-hidden"
+        resizeMode="contain"
+        className="flex flex-row w-full flex-1 min-w-28 min-h-28 mt-5 justify-center items-center rounded-full overflow-hidden"
       >
         <Image source={icon} tintColor="#151312" className="size-5" />
         <Text className="text-secondary text-base font-semibold ml-2">
@@ -36,7 +37,7 @@ function TabIcon({ focused, icon, title }: TabIconProps) {
       </ImageBackground>
     );
   }
- 
+
   return (
     <View className="size-full justify-center items-center mt-4 rounded-full">
       <Image source={icon} tintColor="#A8B5DB" className="size-5" />
@@ -83,7 +84,7 @@ const TabsLayout = () => {
         />
       ))}
     </Tabs>
-  )
-}
+  );
+};
 
-export default TabsLayout
+export default TabsLayout;
