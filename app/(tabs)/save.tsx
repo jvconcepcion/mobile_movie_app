@@ -1,14 +1,15 @@
-import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { images } from "@/constants/images";
+import React from "react";
+import { Image, StyleSheet, View } from "react-native";
 
 const Save = () => {
   return (
-    <View>
-      <Text>Saved</Text>
+    <View className="flex-1 bg-primary">
+      <Image source={images.bg} className="absolute w-full z-0" />
     </View>
-  )
-}
+  );
+};
 
-export default Save
+export default Save;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});
