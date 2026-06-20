@@ -1,22 +1,35 @@
 import { icons } from "@/constants/icons";
+import { cn } from "@/lib/utils";
 import { Link } from "expo-router";
 import React from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+
+interface MovieCardProps {
+  id: number;
+  title: string;
+  poster_path?: string;
+  vote_average?: number;
+  release_date?: string;
+  className?: string;
+}
 
 const MovieCard = ({
   id,
   poster_path,
   title,
-  vote_average,
+  vote_average = 0,
   release_date,
-}: Movie) => {
+  className,
+}: MovieCardProps) => {
   return (
     <Link href={`/movies/${id}`} asChild>
-      <TouchableOpacity className="w-[30%]">
+      <TouchableOpacity className={cn("w-[30%]", className)}>
         <Image
           source={{
             uri: poster_path
-              ? `https://image.tmdb.org/t/p/w500${poster_path}`
+              ? poster_path.startsWith("http")
+                ? poster_path
+                : `https://image.tmdb.org/t/p/w500${poster_path}`
               : "https://placeholder.co/600x400/1a1a1a/ffffff.png",
           }}
           className="w-full h-52 rounded-lg"
