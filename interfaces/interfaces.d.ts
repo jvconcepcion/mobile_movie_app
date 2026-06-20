@@ -74,4 +74,5 @@ interface MovieDetails {
 interface TrendingCardProps {
   movie: TrendingMovie;
   index: number;
+  className?: string;
 }
